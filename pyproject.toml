@@ -15,7 +15,7 @@ urls.Homepage = "https://github.com/makukha/shurl"
 urls.Repository = "https://github.com/makukha/shurl"
 urls.Issues = "https://github.com/makukha/shurl/issues"
 urls.Changelog = "https://github.com/makukha/shurl/blob/main/CHANGELOG.md"
-keywords = []  # TODO
+keywords = []  # todo: add keywords
 classifiers = [
   # see https://pypi.org/classifiers/
   "Development Status :: 4 - Beta",
@@ -53,15 +53,6 @@ dev = [
   "ruff>=0.9 ; python_version >= '3.13'",
   "scriv>=1.5 ; python_version >= '3.13'",
   "typing_extensions>=4 ; python_version >= '3.13'",
-]
-sphinx = [
-  # see readthedocs.yaml
-  "furo ; python_version >= '3.12'",
-  "myst-parser ; python_version >= '3.12'",
-  "sphinx ; python_version >= '3.12'",
-  "sphinx-copybutton ; python_version >= '3.12'",
-  "sphinx-design ; python_version >= '3.12'",
-  "sphinx-sitemap ; python_version >= '3.12'",
 ]
 testing = [
   "coverage>=7 ; python_version >= '3.13'",
