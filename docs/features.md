@@ -1,0 +1,4 @@
+- Minimalistic and fast
+- Text-based URL mappings managed by Git
+- Persist access logs in S3 bucket
+- Use as library or deploy as FastAPI service
