@@ -15,7 +15,9 @@ urls.Homepage = "https://github.com/makukha/shurl"
 urls.Repository = "https://github.com/makukha/shurl"
 urls.Issues = "https://github.com/makukha/shurl/issues"
 urls.Changelog = "https://github.com/makukha/shurl/blob/main/CHANGELOG.md"
-keywords = []  # todo: add keywords
+keywords = [
+   "url", "url-shortener", "qr-code",
+]
 classifiers = [
   # see https://pypi.org/classifiers/
   "Development Status :: 4 - Beta",
@@ -26,9 +28,11 @@ classifiers = [
   "Programming Language :: Python :: 3.11",
   "Programming Language :: Python :: 3.12",
   "Programming Language :: Python :: 3.13",
+  "Programming Language :: Python :: 3.14",
   "Programming Language :: Python :: Implementation :: CPython",
   "Topic :: Documentation",
   "Topic :: Software Development",
+  "Topic :: Software Development :: Libraries",
   "Typing :: Typed",
 ]
 dynamic = ["version"]
@@ -54,6 +58,7 @@ dev = [
   "fastapi-cli>=0.0.7",
   "genbadge[tests,coverage]>=1.1 ; python_version >= '3.13'",
   "mypy>=1.0 ; python_version >= '3.13'",
+  "questionary-cli==0.1.0 ; python_version >= '3.13'",
   "ruff>=0.9 ; python_version >= '3.13'",
   "scriv>=1.5 ; python_version >= '3.13'",
   "typing_extensions>=4 ; python_version >= '3.13'",
@@ -66,6 +71,9 @@ testing = [
   "pytest-sugar>=1 ; python_version >= '3.13'",
 ]
 
+[project.scripts]
+shurl = "shurl.cli:cli"
+
 # bump-my-version
 
 [tool.bumpversion]
@@ -74,7 +82,6 @@ current_version = "0.0.0"
 files = [
   {filename = ".copier-answers.yml"},
   {filename = "docs/badges.md"},
-  {filename = "docs/sphinx/conf.py"},
   {filename = "src/shurl/__version__.py"},
 ]
 

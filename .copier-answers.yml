@@ -1,5 +1,5 @@
 # Changes here will be overwritten by Copier; NEVER EDIT MANUALLY
-_commit: f2a92bb
+_commit: 6faa442
 _src_path: gh:makukha/copython
 author_email: m.makukha@gmail.com
 author_name: Michael Makukha
@@ -10,9 +10,15 @@ github_slug: makukha/shurl
 github_url: https://github.com/makukha/shurl
 module_name: shurl
 openssf_bp_id: '10749'
+project_description: 'Short URL service.
+
+    '
+project_extras: ''
 project_name: shurl
+project_script: true
+project_script_name: shurl
 project_version: 0.0.0
 pypi_package_name: shurl
 pypi_url: https://pypi.org/project/shurl
-python_version: 3.13.5
+python_version: 3.13.8
 python_version_minor: '3.13'

@@ -1,12 +1,6 @@
-_build/
-build/
 .coverage
-.DEVELOPMENT.md
-dist/
-*.egg-info/
 *.pyc
 __pycache__/
-.python-version
 .tmp/
 .tox/
 .venv/

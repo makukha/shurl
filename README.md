@@ -1,7 +1,7 @@
 # shurl
-<!-- docsub: begin -->
-<!-- docsub: exec yq '"> " + .project.description' pyproject.toml -->
-<!-- docsub: end -->
+
+> Short URL service.
+
 
 <!-- docsub: begin -->
 <!-- docsub: include docs/badges.md -->
@@ -27,6 +27,13 @@ $ pip install shurl
 <!-- docsub: begin #usage.md -->
 <!-- docsub: include docs/usage.md -->
 <!-- docsub: end #usage.md -->
+
+
+# CLI Reference
+
+<!-- docsub: begin #cli.md -->
+<!-- docsub: include docs/cli.md -->
+<!-- docsub: end #cli.md -->
 
 
 # Contributing
