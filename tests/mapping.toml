@@ -1,0 +1,3 @@
+[default]
+123 = "https://example.com/1"
+abcdefghijklmn0123456789 = "https://example.com/2"

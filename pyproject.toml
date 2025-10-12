@@ -36,7 +36,11 @@ dynamic = ["version"]
 requires-python = ">=3.11"
 dependencies = [
   "fastapi>=0.115.12",
+  "rich-click>=1.8.9",
 ]
+
+[project.scripts]
+shurl = "shurl.__main__:cli"
 
 [dependency-groups]
 deploy = [

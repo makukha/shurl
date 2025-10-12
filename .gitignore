@@ -1,6 +1,7 @@
 _build/
 build/
 .coverage
+.DEVELOPMENT.md
 dist/
 *.egg-info/
 *.pyc
