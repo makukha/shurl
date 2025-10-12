@@ -43,9 +43,6 @@ dependencies = [
   "rich-click>=1.8.9",
 ]
 
-[project.scripts]
-shurl = "shurl.__main__:cli"
-
 [dependency-groups]
 deploy = [
     "uvicorn>=0.34.3",
