@@ -20,5 +20,5 @@ project_script_name: shurl
 project_version: 0.0.0
 pypi_package_name: shurl
 pypi_url: https://pypi.org/project/shurl
-python_version: 3.13.8
+python_version: 3.13.6
 python_version_minor: '3.13'
