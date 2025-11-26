@@ -1,14 +1,23 @@
 services:
+  # distribution images
 
-  tox:
-    image: docker.io/makukha/multipython:unsafe
-    working_dir: /work
-    entrypoint: tox
-    volumes:
-      - pip_cache:/root/.cache/pip
-      - virtualenv_app_data:/root/.local/share/virtualenv
-      - .:/work
+  shurl-nginx-cli:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: shurl-nginx-cli
+    image: docker.io/makukha/shurl:nginx-cli
 
-volumes:
-  pip_cache:
-  virtualenv_app_data:
+  # testing services
+
+  test-shurl-nginx-cli:
+    image: docker.io/makukha/shurl:nginx-cli
+
+    healthcheck:
+      test: ["CMD-SHELL", "pidof nginx || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+    ports:
+      - "8080:80"

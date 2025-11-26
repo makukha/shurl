@@ -4,5 +4,15 @@
 <!-- docsub: strip -->
 ```shell
 $ shurl --help
+Usage: shurl [OPTIONS] COMMAND [ARGS]...
+
+URL shortener.
+
+╭─ Options ──────────────────────────────────────────────────────────╮
+│ --help  Show this message and exit.                                │
+╰────────────────────────────────────────────────────────────────────╯
+╭─ Commands ─────────────────────────────────────────────────────────╮
+│ add-entry            Add new project entry.                        │
+╰────────────────────────────────────────────────────────────────────╯
 ```
 <!-- docsub: end -->

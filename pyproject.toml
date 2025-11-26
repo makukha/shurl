@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "shurl"
-description = "Yet another opinionated URL shortening service"
+description = "An opinionated URL shortener"
 authors = [
   {name = "Michael Makukha", email = "m.makukha@gmail.com"},
 ]
@@ -39,19 +39,15 @@ dynamic = ["version"]
 
 requires-python = ">=3.11"
 dependencies = [
-  "fastapi>=0.115.12",
   "rich-click>=1.8.9",
 ]
 
 [dependency-groups]
-deploy = [
-    "uvicorn>=0.34.3",
-    "uvloop>=0.21.0",
-]
 dev = [
   "bump-my-version>=1.0 ; python_version >= '3.13'",
   "caseutil>=0.7.2 ; python_version >= '3.13'",
   "docsub>=0.9.0 ; python_version >= '3.13'",
+  "doctestcase>=0.2.2,<0.3 ; python_version >= '3.13'",
   "fastapi-cli>=0.0.7",
   "genbadge[tests,coverage]>=1.1 ; python_version >= '3.13'",
   "mypy>=1.0 ; python_version >= '3.13'",

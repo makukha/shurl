@@ -1,20 +1,12 @@
 import rich_click as click
 
-from . import core
-
 
 @click.group()
 def cli():
-    """"""
+    """URL shortener."""
+
 
 @cli.command()
-@click.argument('length', type=int)
-def add(length: int):
-    """
-    Generate short key for url and add it to mappings file.
-
-    :param length:
-    :return:
-    """
-    key = core.new_key(length)
-    click.echo(key)
+@click.option('--key-length', type=int)
+def add_entry(key_length: int):
+    """Add new project entry."""

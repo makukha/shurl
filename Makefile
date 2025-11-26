@@ -61,9 +61,24 @@ update-template:
 lint:
 	lefthook run pre-commit --jobs lint --all-files
 
+.PHONY: run-shurl-nginx-cli
+# Run shurl-nginx-cli example.
+run-shurl-nginx-cli: .tmp/img/shurl-nginx-cli
+	bash examples/shurl-nginx-cli/run.sh
+
 .PHONY: build
 # Build project.
 build: badges docs package requirements
+
+.tmp/img/dist: src README.md pyproject.toml uv.lock
+	podman compose build dist
+	mkdir -p ${@D}
+	touch $@
+
+.tmp/img/shurl-%: examples/shurl-% .tmp/img/dist
+	podman compose build shurl-$*
+	mkdir -p ${@D}
+	touch $@
 
 .PHONY: package
 # Build package.
