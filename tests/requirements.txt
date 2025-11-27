@@ -2,7 +2,7 @@
 #    uv export --frozen --no-emit-project --no-hashes --only-group testing
 colorama==0.4.6 ; sys_platform == 'win32'
     # via pytest
-coverage==7.12.0 ; python_full_version >= '3.13'
+coverage==7.12.0 ; python_full_version >= '3.14'
 doctestcase==0.2.2
 iniconfig==2.3.0
     # via pytest
@@ -19,8 +19,8 @@ pygments==2.19.2
     # via pytest
 pytest==9.0.1
     # via pytest-sugar
-pytest-sugar==1.1.1 ; python_full_version >= '3.13'
-termcolor==3.2.0 ; python_full_version >= '3.13'
+pytest-sugar==1.1.1 ; python_full_version >= '3.14'
+termcolor==3.2.0 ; python_full_version >= '3.14'
     # via pytest-sugar
 typing-extensions==4.15.0
     # via mypy
