@@ -46,10 +46,13 @@ dependencies = [
 dev = [
   "bump-my-version>=1.0 ; python_version >= '3.13'",
   "caseutil>=0.7.2 ; python_version >= '3.13'",
+  "copier>=9.11.0; python_version >= '3.13'",
   "docsub>=0.9.0 ; python_version >= '3.13'",
   "doctestcase>=0.2.2,<0.3 ; python_version >= '3.13'",
   "fastapi-cli>=0.0.7",
   "genbadge[tests,coverage]>=1.1 ; python_version >= '3.13'",
+  "jinja2-shell-extension>=2.1.1; python_version >= '3.13'",
+  "jinja2-time>=0.2.0; python_version >= '3.13'",
   "mypy>=1.0 ; python_version >= '3.13'",
   "questionary-cli==0.1.0 ; python_version >= '3.13'",
   "ruff>=0.9 ; python_version >= '3.13'",
