@@ -1,0 +1,11 @@
+env_file = ".env"
+
+[env]
+_.python.venv = { path = ".venv", create = true }
+
+[tools]
+jq = "latest"
+mkcert = "latest"
+uv = "latest"
+yj = "latest"
+yq = "latest"

@@ -1,4 +1,7 @@
+MAKEFLAGS += --no-print-directory
 SHELL = /usr/bin/env sh -eu
+include .env
+
 PODMAN = $(shell command -v podman || command -v docker)
 
 FORCE:
@@ -15,6 +18,8 @@ help:
 .PHONY: init
 # Initialize development environment.
 init:
+	mise trust
+	mise install
 	@command -v gh || echo 'Command "gh" not found, see https://cli.github.com'
 	@command -v git || echo 'Command "git" not found, see https://git-scm.com'
 	@command -v lefthook || echo 'Command "lefthook" not found, see https://lefthook.dev'
@@ -22,6 +27,8 @@ init:
 	@command -v uv || echo 'Command "uv" not found, see https://docs.astral.sh/uv'
 	@command -v yq || echo 'Command "yq" not found, see https://github.com/mikefarah/yq'
 	make -B sync
+	mkcert -install
+	sudo hostctl add domains ${PROJECT_NAME} example.com
 
 .PHONY: sync
 # Synchronize development environment.
@@ -56,15 +63,25 @@ update-template:
 # Develop
 
 
+.PHONY: dev
+# Run tmux based development environment.
+dev:
+	bash .tmux.sh
+
 .PHONY: lint
 # Run project linters.
 lint:
 	lefthook run pre-commit --jobs lint --all-files
 
-.PHONY: run-shurl-nginx-cli
-# Run shurl-nginx-cli example.
-run-shurl-nginx-cli: .tmp/img/shurl-nginx-cli
-	bash examples/shurl-nginx-cli/run.sh
+.PHONY: run-nginx
+# Run nginx example.
+run-nginx: .tmp/ssl/example.com
+	@tmux new-window -t ${PROJECT_NAME} -n nginx
+	@tmux send-keys -t ${SESSION}:nginx 'podman compose up --build --force-recreate nginx' C-m
+
+.tmp/ssl/%:
+	mkdir -p $@
+	mkcert -cert-file $@/cert.pem -key-file $@/key.pem $*
 
 .PHONY: build
 # Build project.
@@ -118,16 +135,17 @@ else
 	${PODMAN} compose run --rm tox run-parallel --installpkg="`find .tmp/dist -name '*.whl'`"
 endif
 
-.PHONY: shell # [ SERVICE=tox ]
-# Enter service container, tox by default
+.PHONY: shell # [ SERVICE=builder ]
+# Enter service container, builder by default
 shell:
-	${PODMAN} compose run --rm --entrypoint bash $(or ${SERVICE},tox)
+	${PODMAN} compose run --build --rm --entrypoint bash $(or ${SERVICE},builder)
 
 .PHONY: clean
 # Clean up intermediate files.
 clean:
 	rm -rf .coverage .tmp .tox .venv
 	find . -name __pycache__ -exec rm -rf {} \;
+	hostctl remove domains --all ${PROJECT_NAME}
 
 
 # Release

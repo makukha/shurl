@@ -77,6 +77,19 @@ wheels = [
 ]
 
 [[package]]
+name = "cattrs"
+version = "25.3.0"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "attrs" },
+    { name = "typing-extensions" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/6e/00/2432bb2d445b39b5407f0a90e01b9a271475eea7caf913d7a86bcb956385/cattrs-25.3.0.tar.gz", hash = "sha256:1ac88d9e5eda10436c4517e390a4142d88638fe682c436c93db7ce4a277b884a", size = 509321, upload-time = "2025-10-07T12:26:08.737Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/d8/2b/a40e1488fdfa02d3f9a653a61a5935ea08b3c2225ee818db6a76c7ba9695/cattrs-25.3.0-py3-none-any.whl", hash = "sha256:9896e84e0a5bf723bc7b4b68f4481785367ce07a8a02e7e9ee6eb2819bc306ff", size = 70738, upload-time = "2025-10-07T12:26:06.603Z" },
+]
+
+[[package]]
 name = "certifi"
 version = "2025.11.12"
 source = { registry = "https://pypi.org/simple" }
@@ -276,6 +289,15 @@ wheels = [
     { url = "https://files.pythonhosted.org/packages/da/1c/017a3e1113ed34d998b27d2c6dba08a9e7cb97d362f0ec988fcd873dcf81/coverage-7.12.0-cp314-cp314t-win_amd64.whl", hash = "sha256:e84da3a0fd233aeec797b981c51af1cabac74f9bd67be42458365b30d11b5291", size = 222423, upload-time = "2025-11-18T13:34:15.14Z" },
     { url = "https://files.pythonhosted.org/packages/4c/36/bcc504fdd5169301b52568802bb1b9cdde2e27a01d39fbb3b4b508ab7c2c/coverage-7.12.0-cp314-cp314t-win_arm64.whl", hash = "sha256:01d24af36fedda51c2b1aca56e4330a3710f83b02a5ff3743a6b015ffa7c9384", size = 220459, upload-time = "2025-11-18T13:34:17.222Z" },
     { url = "https://files.pythonhosted.org/packages/ce/a3/43b749004e3c09452e39bb56347a008f0a0668aad37324a99b5c8ca91d9e/coverage-7.12.0-py3-none-any.whl", hash = "sha256:159d50c0b12e060b15ed3d39f87ed43d4f7f7ad40b8a534f4dd331adbb51104a", size = 209503, upload-time = "2025-11-18T13:34:18.892Z" },
+]
+
+[[package]]
+name = "date62"
+version = "0.2.0"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/00/32/32c9d6f6e84396a4d8cd8e6cae07403e452777e8f41016f46664e80d95bc/date62-0.2.0.tar.gz", hash = "sha256:921b4f2538935c553c475873ec5d2fda20ee6693f60ea122fda5b08b88f794f2", size = 105114, upload-time = "2025-04-04T18:33:15.243Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/40/56/3a984fa1600f3d147c827c85406ee0418119c13c3f1c63fa4223b9598e82/date62-0.2.0-py2.py3-none-any.whl", hash = "sha256:abb46dda9bbf2a23faefa519f99cbab6d965170a075236a0d89457c6c2f39b26", size = 8419, upload-time = "2025-04-04T18:33:13.427Z" },
 ]
 
 [[package]]
@@ -990,7 +1012,10 @@ wheels = [
 name = "shurl"
 source = { editable = "." }
 dependencies = [
+    { name = "cattrs" },
+    { name = "date62" },
     { name = "rich-click" },
+    { name = "tomlkit" },
 ]
 
 [package.dev-dependencies]
@@ -1015,7 +1040,12 @@ testing = [
 ]
 
 [package.metadata]
-requires-dist = [{ name = "rich-click", specifier = ">=1.8.9" }]
+requires-dist = [
+    { name = "cattrs", specifier = ">=25.3.0" },
+    { name = "date62", specifier = ">=0.2.0" },
+    { name = "rich-click", specifier = ">=1.8.9" },
+    { name = "tomlkit", specifier = ">=0.13.3" },
+]
 
 [package.metadata.requires-dev]
 dev = [

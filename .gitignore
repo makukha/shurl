@@ -1,6 +1,9 @@
 .coverage
+.dev
+.mypy_cache/
 *.pyc
 __pycache__/
+.ruff_cache/
 .tmp/
 .tox/
 .venv/

@@ -1,0 +1,10 @@
+[[entries]]
+key = "author"
+description = "package author profile"
+redirect_url = "https://github.com/makukha"
+permanent = true
+
+[[entries]]
+key = "repo"
+description = "package repository"
+redirect_url = "https://github.com/makukha/shurl"

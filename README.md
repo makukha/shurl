@@ -81,7 +81,8 @@ URL shortener.
 │ --help  Show this message and exit.                                │
 ╰────────────────────────────────────────────────────────────────────╯
 ╭─ Commands ─────────────────────────────────────────────────────────╮
-│ add-entry            Add new project entry.                        │
+│ project              Manage shurl project.                         │
+│ workspace            Manage shurl workspace.                       │
 ╰────────────────────────────────────────────────────────────────────╯
 ```
 <!-- docsub: end -->

@@ -1,18 +1,16 @@
 services:
-  # distribution images
-
-  shurl-nginx-cli:
+  builder:
     build:
       context: .
       dockerfile: Dockerfile
-      target: shurl-nginx-cli
-    image: docker.io/makukha/shurl:nginx-cli
+      target: builder
 
-  # testing services
-
-  test-shurl-nginx-cli:
-    image: docker.io/makukha/shurl:nginx-cli
-
+  nginx:
+    image: docker.io/makukha/shurl:nginx
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: nginx
     healthcheck:
       test: ["CMD-SHELL", "pidof nginx || exit 1"]
       interval: 10s
@@ -20,4 +18,10 @@ services:
       retries: 3
       start_period: 10s
     ports:
-      - "8080:80"
+      - "127.0.0.1:8080:80"
+      - "127.0.0.1:8443:443"
+    volumes:
+      - ./tests/examples/nginx/projects:/opt/shurl/projects
+      - ./tests/examples/nginx/workspace.toml:/opt/shurl/workspace.toml
+      - ./.tmp/ssl/example.com/cert.pem:/ssl/example.com/cert.pem
+      - ./.tmp/ssl/example.com/key.pem:/ssl/example.com/key.pem
